@@ -1,5 +1,8 @@
+/*General styles*/
+
 * {
 	box-sizing: border-box;
+	position: relative;
 }
 
 
@@ -14,6 +17,7 @@ html, body {
         flex-direction: column;
         min-height: 100vh;
 				font-family: 'Open Sans', Arial, sans-serif;
+				background-color: rgb(8,8,8);
     }
     .wrap {
         min-height: 100%;
@@ -24,17 +28,34 @@ html, body {
     header, main, footer {
         flex-shrink: 0;
     }
+
+
+		/*Header styles*/
     header {
-        background-color: orange;
         min-height: 300px;
+				background-image: linear-gradient(
+	      	rgba(10, 10, 10, 0.7),
+	      	rgba(10, 10, 10, 0.7)
+	    	),
+    		url(../img/hero1.jpg);
+    		background-position: center center;
+    		background-size: cover;
     }
+
+
+		/*Main styles*/
     main {
         flex-grow: 1;
     }
+
+		/*Footer styles*/
     footer {
         min-height: 50px;
         background-color: black;
     }
+
+
+		/*Media queries*/
 
 @media (max-width: 460px) {
 
