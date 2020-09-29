@@ -1,8 +1,12 @@
 /*General styles*/
 
 * {
-	box-sizing: border-box;
-	position: relative;
+}
+.inline {
+	display: inline;
+}
+.text-center {
+	text-align: center;
 }
 
 
@@ -18,35 +22,23 @@ html, body {
         min-height: 100vh;
 				font-family: 'Open Sans', Arial, sans-serif;
 				background-color: rgb(8,8,8);
+				min-width: 250px;
     }
     .wrap {
         min-height: 100%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
+				color: white;
     }
     header, main, footer {
         flex-shrink: 0;
     }
 
-		.inline {
-			display: inline;
-		}
+
 
 
 		/*Header styles*/
-    header {
-        min-height: 300px;
-				background-image: linear-gradient(
-	      	rgba(10, 10, 10, 0.7),
-	      	rgba(10, 10, 10, 0.7)
-	    	),
-    		url(../img/hero4.jpg);
-    		background-position: center center;
-    		background-size: cover;
-    }
-
-		/*Head and logo styles*/
 
 		.head {
 			display: flex;
@@ -64,6 +56,8 @@ html, body {
 			transition: width 1s, height 1s;
 			transition: margin-left 1s;
 			transition-timing-function: linear;
+			overflow: visible;
+			z-index: 10;
 		}
 
 		.logo img:hover {
@@ -73,6 +67,10 @@ html, body {
 
 		/*Menu styles*/
 
+		nav {
+				z-index: 15;
+		}
+
 		nav ul {
 	    margin: 0;
 	    list-style:none;
@@ -81,29 +79,55 @@ html, body {
 		nav li {
 		    display: inline-block;
 		    padding: 5px 10px;
-		    position: relative;
+				position: relative;
 		}
 
 		li:hover > ul {
-		    display: block;
+		    display: inline-block;
 		}
 
-		ul ul {
+		nav a {
+			color: grey;
+		}
+
+		nav a:hover {
+			color: rgb(232,232,232);
+		}
+
+		nav ul ul {
 		    position: absolute;
 		    display: none;
 		    margin: 0;
-		    padding: 5px 10px;
+				width: 140px;
+				top: 25px;
+				left: 5px;
+				border: 2px solid rgb(16,16,16);
 		}
 
-		ul ul li {
+		nav ul ul li {
 		    display: block;
+				padding: 12px 5px;
+				padding-left: 20px;
+				font-size: 0.8rem;
+				border-bottom: 1px solid rgb(16,16,16);
 		}
 
-		ul ul ul {
+		nav ul ul li:hover {
+				background-color: rgb(32,32,32);
+		}
+		nav ul ul li:hover ul{
+				display: inline-block;
+		}
+
+		nav ul ul ul {
 		    position: absolute;
 		    top: 0;
 		    left: 100%;
 		}
+
+		/*Hero styles*/
+
+
 
 
 
@@ -121,6 +145,24 @@ html, body {
 
 		/*Media queries*/
 
-@media (max-width: 460px) {
+@media (max-width: 700px) {
+		.hero {
+				min-height: 300px;
+		}
 
+		h1 {
+				font-size: 1.5rem;
+		}
+}
+
+@media (max-width: 350px) {
+		h1 {
+				font-size: 1.2rem;
+		}
+
+		.search {
+		  width: 200px;
+		  height: 35px;
+			margin: 15px auto 0;
+		  }
 }
