@@ -9,6 +9,11 @@
 	text-align: center;
 }
 
+h1, h2, h3 {
+	color: rgb(240,240,240);
+	font-family: 'Roboto';
+}
+
 
 html, body {
         margin: 0;
@@ -30,6 +35,8 @@ html, body {
         flex-direction: column;
         align-items: stretch;
 				color: white;
+				padding-left: 5px;
+				padding-right: 5px;
     }
     header, main, footer {
         flex-shrink: 0;
@@ -155,8 +162,6 @@ html, body {
 
 		h1 {
 				font-size: 1.8rem;
-				color: rgb(240,240,240);
-				font-family: 'Roboto';
 		}
 
 		.search {
@@ -224,17 +229,66 @@ html, body {
 		}
 
 
+		/*Result styles*/
+
+		.result {
+			width: 80%;
+			max-width: 1200px;
+			margin: 20px auto;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+			padding: 20px 0 20px 0;
+		}
+
+		.result h2 {
+			text-align: left;
+			font-size: 1.2rem;
+			margin-bottom: 20px;
+		}
+
+		.card-wrap {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: baseline;
+		}
+
+		.card {
+			display: inline-flex;
+			flex-flow: column wrap;
+			justify-content: flex-start;
+			color: grey;
+			opacity: 0.4;
+			margin: 0 10px 25px 10px;
+			vertical-align: top;
+		}
+		.card img {
+			border: 3px solid grey;
+			height: 170px;
+			margin-bottom: 10px;
+			max-width: 100%;
+			min-width: 200px;
+		}
+		.card a {
+			transition: all 55ms;
+		}
+		.card a:hover img {
+			transform: scale(1.1);
+			z-index: 5;
+		}
+		.card h3 {
+			margin-bottom: 5px;
+		}
+		.card p {
+			font-size: 0.8rem;
+		}
 
 
-		/*Main styles*/
-    main {
-        flex-grow: 1;
-    }
 
 		/*Footer styles*/
     footer {
         min-height: 50px;
-        background-color: black;
+        background-color: rgb(8,8,8);
     }
 
 
@@ -259,11 +313,27 @@ html, body {
 		  width: 200px;
 			margin: 15px auto 0;
 		  }
+
+			.result {
+				width: 95%;
+			}
 }
 
 @media (max-width: 250px) {
 		h1 {
 				font-size: 1rem;
+		}
+
+		.result {
+			width: 100%;
+		}
+		.result h2 {
+			font-size: 1rem;
+		}
+
+		.card img {
+			margin-left: 0;
+			margin-right: 0;
 		}
 
 }
