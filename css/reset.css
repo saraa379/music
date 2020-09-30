@@ -65,6 +65,10 @@ a {
 		text-decoration: none;
 }
 
+input  {
+	border: none;
+}
+
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;
