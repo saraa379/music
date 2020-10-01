@@ -94,53 +94,140 @@ const songs = [
 ];
 
 window.addEventListener('load', function(event) {
-//accessing the card div
-let cardsDiv = document.getElementById("cards");
+    //printing songs
+    createCards(songs);
 
 
-    var i;
-    for (i = 0; i < songs.length; i++) {
-      //console.log(songs[i].title);
+     //search function
+    var searchBtn = document.getElementById('searchBtn');
+	  searchBtn.addEventListener('click', function(event){
 
-      //creating h3 tag with song title
-      let titleH3 = document.createElement("h3");
-      let title = document.createTextNode(songs[i].title);
-      titleH3.appendChild(title);
+        var inputVal = document.getElementById("searchInput").value;
 
-      //creating p tag with artist name
-      let artistP = document.createElement("p");
-      let artist = document.createTextNode(songs[i].artist);
-      artistP.appendChild(artist);
+        var arrayBeg = [];
+       	var arrayEnd = [];
+       	if (inputVal === "") {
+       			console.log("Search field is empty");
+       	} else {
+       				var term = inputVal.toLowerCase();
+              //searching by title
+       			  for (var i = 0; i < songs.length; i++) {
+       					var songTitle = songs[i].title.toLowerCase();
+       			  	if (songTitle.includes(term)) {
+       							if (songTitle.startsWith(term)) {
+       									arrayBeg.push(songs[i]);
+       							} else {
+       									arrayEnd.push(songs[i]);
+       							}
+       			  	}
+       			  }//end of for
 
-      //creating text cardsDiv
-      let textDiv = document.createElement("div");
-      textDiv.classList.add('text', 'inline');
-      textDiv.appendChild(titleH3);
-      textDiv.appendChild(artistP);
-
-      //creating a tag
-      let aImg = document.createElement("a");
-      aImg.setAttribute("href", songs[i].url);
-      aImg.setAttribute("target", "_blank");
-
-      let image = document.createElement("img");
-      image.setAttribute("src", songs[i].image);
-      image.setAttribute("alt", "song");
-      aImg.appendChild(image);
-
-      //creating card div
-      let cardDiv = document.createElement("div");
-      cardDiv.classList.add('card', 'column', 'xs-twelve', 'sm-six', 'md-four', 'lg-three');
-      cardDiv.appendChild(aImg);
-      cardDiv.appendChild(textDiv);
-
-      cardsDiv.appendChild(cardDiv);
+              //searching by artist
+              for (var i = 0; i < songs.length; i++) {
+                 var songArtist = songs[i].artist.toLowerCase();
+                 if (songArtist.includes(term)) {
 
 
-    }
+                     if (songArtist.startsWith(term)) {
 
+                           //checks if song is already in the arrayBeg
+                           if(arrayBeg.some(song => song.title === songs[i].title)){
+                                console.log("Object found inside the array.");
+                            } else{
+                                arrayBeg.push(songs[i]);
+                            }
+
+
+                     } else {
+
+                       //checks if song is already in the arrayEnd
+                       if(arrayEnd.some(song => song.title === songs[i].title)){
+                            console.log("Object found inside the array.");
+                        } else{
+                            arrayEnd.push(songs[i]);
+                        }
+
+                     }
+                 }
+               }//end of for
+
+
+       				var array = arrayBeg.concat(arrayEnd);
+       	}//end of if else
+
+        if (array === undefined || array.length == 0) {
+            console.log('array is empty');
+            createCards(songs);
+        } else {
+            console.log('array is not empty');
+            //if searched song is in the db, clears the result div
+              let cardsDiv = document.getElementById("cards");
+              while (cardsDiv.firstChild) {
+                cardsDiv.removeChild(cardsDiv.lastChild);
+              }
+              createCards(array);
+
+        }
+
+
+	  })//end of searchBtn eventListener
 
 
 
 
 }); //windows.load
+
+
+//taking array as parameter and prints it on the html page
+function createCards(arr){
+
+      //accessing the card div
+      let cardsDiv = document.getElementById("cards");
+
+
+      var i;
+      for (i = 0; i < arr.length; i++) {
+        //console.log(songs[i].title);
+
+        //creating h3 tag with song title
+        let titleH3 = document.createElement("h3");
+        let title = document.createTextNode(arr[i].title);
+        titleH3.appendChild(title);
+
+        //creating p tag with artist name
+        let artistP = document.createElement("p");
+        let artist = document.createTextNode(arr[i].artist);
+        artistP.appendChild(artist);
+
+        //creating text cardsDiv
+        let textDiv = document.createElement("div");
+        textDiv.classList.add('text', 'inline');
+        textDiv.appendChild(titleH3);
+        textDiv.appendChild(artistP);
+
+        //creating a tag
+        let aImg = document.createElement("a");
+        aImg.setAttribute("href", arr[i].url);
+        aImg.setAttribute("target", "_blank");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", arr[i].image);
+        image.setAttribute("alt", "song");
+        aImg.appendChild(image);
+
+        //creating card div
+        let cardDiv = document.createElement("div");
+        cardDiv.classList.add('card', 'column', 'xs-twelve', 'sm-six', 'md-four', 'lg-three');
+        cardDiv.appendChild(aImg);
+        cardDiv.appendChild(textDiv);
+
+        cardsDiv.appendChild(cardDiv);
+
+      }//end of for
+
+}
+
+
+
+
+//
