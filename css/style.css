@@ -8,6 +8,8 @@
 .text-center {
 	text-align: center;
 }
+.mb-30 {margin-bottom: 30px;}
+.mb-10 {margin-bottom: 10px;}
 
 h1, h2, h3 {
 	color: rgb(240,240,240);
@@ -286,6 +288,51 @@ html, body {
         min-height: 50px;
         background-color: rgb(8,8,8);
     }
+
+
+	#footer {
+	    font-size: .9em;
+	    line-height: 1.8em;
+	    margin: 0 auto;
+			color: grey;
+			padding-bottom: 10px;
+	}
+
+	#footer a {
+		color: grey;
+	}
+	#footer i {
+		padding-right: 10px;
+	}
+
+	a.btn-las-mer {
+		color: white;
+	}
+	#footer a:hover {
+		color: white;
+	}
+	#footer .btn {
+		 color: grey;
+		 border-radius: 5px;
+		 font-size: 16px;
+		 line-height: 100%;
+		 width: 8em;
+		 height: 25px;
+		 background-color: inherit;
+		 border: 1px solid grey;
+		 margin-top: 6px;
+	}
+
+	#footer .btn:hover {
+		background-color: grey;
+		color: white;
+	}
+	#footer input {
+		max-width: 200px;
+		color: grey;
+		border-radius: 3px;
+		padding-left: 5px;
+	}
 
 
 		/*Media queries*/
