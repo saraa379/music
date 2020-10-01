@@ -3,7 +3,7 @@
 .row {
 	margin: 0 auto;
 	padding: 0 15px;
-	width: 100px;
+	width: 100%;
 }
 
 .row::after {
@@ -38,7 +38,7 @@
 	.row {
 		width: 430px;
 	}
-	
+
 }
 
 @media ( min-width: 768px ) {

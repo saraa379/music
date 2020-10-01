@@ -232,11 +232,9 @@ html, body {
 		/*Result styles*/
 
 		.result {
-			width: 80%;
-			max-width: 1200px;
 			margin: 20px auto;
 			border-radius: 5px;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+			/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);*/
 			padding: 20px 0 20px 0;
 		}
 
@@ -247,27 +245,25 @@ html, body {
 		}
 
 		.card-wrap {
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: flex-start;
-			align-items: baseline;
+			padding-top: 6%;
+    	padding-bottom: 4%;
 		}
 
 		.card {
 			display: inline-flex;
 			flex-flow: column wrap;
-			justify-content: flex-start;
 			color: grey;
 			opacity: 0.4;
-			margin: 0 10px 25px 10px;
 			vertical-align: top;
+			max-width: 100%;
+			position: relative;
+			height: auto;
+			margin: 20px auto;
 		}
 		.card img {
 			border: 3px solid grey;
-			height: 170px;
-			margin-bottom: 10px;
-			max-width: 100%;
-			min-width: 200px;
+			height: 200px;
+			width: 100%;
 		}
 		.card a {
 			transition: all 55ms;
@@ -293,6 +289,10 @@ html, body {
 
 
 		/*Media queries*/
+
+@media (max-width: 700px) {
+
+}
 
 @media (max-width: 700px) {
 		.hero {
@@ -334,6 +334,10 @@ html, body {
 		.card img {
 			margin-left: 0;
 			margin-right: 0;
+		}
+
+		.card-wrap {
+			width: 100%;
 		}
 
 }
