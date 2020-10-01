@@ -241,7 +241,6 @@ html, body {
 		}
 
 		.result h2 {
-			text-align: left;
 			font-size: 1.2rem;
 			margin-bottom: 20px;
 		}
@@ -276,6 +275,7 @@ html, body {
 		}
 		.card h3 {
 			margin-bottom: 5px;
+			margin-top: 5px;
 		}
 		.card p {
 			font-size: 0.8rem;
